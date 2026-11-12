@@ -115,10 +115,10 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                   className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-center"
                 >
                   <span className="block text-xs text-neutral-400">{opt.minutes} Minutes</span>
-                  <span className="block text-lg font-bold text-white mt-0.5">${opt.price}</span>
+                  <span className="block text-lg font-bold text-white mt-0.5">₹{opt.price}</span>
                   {opt.originalPrice && (
                     <span className="text-[11px] text-neutral-500 line-through">
-                      ${opt.originalPrice}
+                      ₹{opt.originalPrice}
                     </span>
                   )}
                 </div>

@@ -110,7 +110,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   // Pricing calculations
   const basePrice =
-    currentService?.durationOptions.find((d) => d.minutes === durationMinutes)?.price || 120;
+    currentService?.durationOptions.find((d) => d.minutes === durationMinutes)?.price || 1999;
   const addonsTotal = selectedAddOns.reduce((sum, item) => sum + item.price, 0);
   const subtotal = (basePrice + addonsTotal) * guestCount;
 
@@ -273,7 +273,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         </div>
                         <p className="text-xs text-neutral-300 line-clamp-1">{p.atmosphere}</p>
                         <div className="mt-2 text-[11px] text-neutral-400">
-                          {p.location.district} - From ${p.startingPrice}
+                          {p.location.district} - From ₹{p.startingPrice}
                         </div>
                       </button>
                     );
@@ -322,7 +322,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         <div className="text-right shrink-0">
                           <span className="text-xs text-neutral-400 block">Starting at</span>
                           <span className="text-sm font-semibold text-white">
-                            ${srv.durationOptions[0]?.price}
+                            ₹{srv.durationOptions[0]?.price}
                           </span>
                         </div>
                       </button>
@@ -351,7 +351,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       >
                         <span className="block text-sm">{opt.minutes} Minutes</span>
                         <span className="block text-xs font-bold text-[#c59b6d] mt-0.5">
-                          ${opt.price}
+                          ₹{opt.price}
                         </span>
                       </button>
                     ))}
@@ -418,7 +418,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                           </p>
                         </div>
                         <span className="text-xs font-semibold text-[#c59b6d] shrink-0">
-                          +${addon.price}
+                          +₹{addon.price}
                         </span>
                       </button>
                     );
@@ -587,7 +587,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="text-base font-bold text-white">${subtotal}</span>
+                    <span className="text-base font-bold text-white">₹{subtotal}</span>
                     <span className="block text-[10px] text-neutral-400">
                       {guestCount} Guest{guestCount > 1 ? 's' : ''} ({durationMinutes}m)
                     </span>
@@ -600,7 +600,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     {selectedAddOns.map((a) => (
                       <div key={a.id} className="flex justify-between">
                         <span>+ {a.name}</span>
-                        <span>+${a.price}</span>
+                        <span>+₹{a.price}</span>
                       </div>
                     ))}
                   </div>
@@ -739,7 +739,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   type="submit"
                   className="px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider bg-gradient-to-r from-[#dec3a0] to-[#c59b6d] text-black hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-[#c59b6d]/20"
                 >
-                  Complete Reservation (${subtotal})
+                  Complete Reservation (₹{subtotal})
                 </button>
               </div>
             </form>
@@ -817,7 +817,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <div className="flex justify-between border-t border-white/10 pt-2 font-medium">
                     <span className="text-neutral-300">Amount Due at Spa:</span>
                     <span className="text-[#c59b6d] font-bold text-sm">
-                      ${confirmedBooking.totalAmount}
+                      ₹{confirmedBooking.totalAmount}
                     </span>
                   </div>
                 </div>

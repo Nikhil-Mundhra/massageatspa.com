@@ -268,11 +268,11 @@ export const ServicesExplorer: React.FC<ServicesExplorerProps> = ({
                       </span>
                       <div className="text-right">
                         <span className="text-lg font-bold text-white">
-                          ${currentOption.price}
+                          ₹{currentOption.price}
                         </span>
                         {currentOption.originalPrice && (
                           <span className="text-xs text-neutral-500 line-through ml-1.5">
-                            ${currentOption.originalPrice}
+                            ₹{currentOption.originalPrice}
                           </span>
                         )}
                       </div>

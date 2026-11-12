@@ -8,31 +8,31 @@ const SEED_BOOKINGS: Booking[] = [
     bookingCode: 'SAGA-5821',
     spaId: 'saga-luxury-spa',
     spaName: 'Saga Luxury Spa',
-    serviceId: 'saga-royal-hot-stone',
-    serviceTitle: 'Imperial Volcanic Hot Stone Ritual',
+    serviceId: 'saga-thai-traditional',
+    serviceTitle: 'Traditional Thai Body Therapy',
     durationMinutes: 90,
-    price: 210,
-    addonsTotal: 35,
-    totalAmount: 245,
-    currency: '$',
+    price: 2799,
+    addonsTotal: 499,
+    totalAmount: 3298,
+    currency: '₹',
     date: '2026-11-15',
-    timeSlot: '14:30',
+    timeSlot: '14:15',
     guestCount: 1,
-    guestName: 'Julian Sterling',
-    guestEmail: 'julian.sterling@example.com',
-    guestPhone: '+1 (555) 234-8901',
+    guestName: 'Rohit Kulkarni',
+    guestEmail: 'rohit.kulkarni@example.com',
+    guestPhone: '+91 98112 34567',
     therapistGender: 'no-preference',
     pressurePreference: 'firm',
     focusAreas: ['Neck & Shoulders', 'Lower Back'],
-    allergiesOrMedicalNotes: 'Mild sensitivity to eucalyptus scent.',
+    allergiesOrMedicalNotes: 'Mild sensitivity to synthetic fragrances.',
     specialRequests: 'Quiet session preferred, please.',
     selectedAddOns: [
       {
         id: 'addon-hot-stones',
         name: 'Volcanic Hot Stones Enhancement',
         durationMinutes: 15,
-        price: 35,
-        description: 'Smooth heated basalt stones applied along tension points.',
+        price: 499,
+        description: 'Smooth heated volcanic basalt stones along spine and shoulders.',
       },
     ],
     status: 'confirmed',
@@ -45,29 +45,29 @@ const SEED_BOOKINGS: Booking[] = [
     spaId: 'signature-spa',
     spaName: 'Signature Spa',
     serviceId: 'sig-thai-herbal-compress',
-    serviceTitle: 'Herbal Compress & Acupressure Fusion',
+    serviceTitle: 'Thai Herbal Potli & Acupressure Fusion',
     durationMinutes: 90,
-    price: 175,
-    addonsTotal: 25,
-    totalAmount: 200,
-    currency: '$',
+    price: 2699,
+    addonsTotal: 399,
+    totalAmount: 3098,
+    currency: '₹',
     date: '2026-11-18',
-    timeSlot: '17:00',
+    timeSlot: '17:15',
     guestCount: 1,
-    guestName: 'Aria Montgomery',
-    guestEmail: 'aria.m@example.com',
-    guestPhone: '+1 (555) 781-9923',
+    guestName: 'Ananya Sharma',
+    guestEmail: 'ananya.sharma@example.com',
+    guestPhone: '+91 98710 88234',
     therapistGender: 'female',
     pressurePreference: 'medium',
     focusAreas: ['Lower Back', 'Legs & Glutes'],
-    specialRequests: 'Post-flight stiffness from international travel.',
+    specialRequests: 'Stiffness from long hours seated in Cyber City office.',
     selectedAddOns: [
       {
         id: 'addon-aromatherapy',
-        name: 'Custom Organic Aromatherapy Blend',
-        durationMinutes: 0,
-        price: 25,
-        description: 'Wildcrafted botanical oils for muscle revival.',
+        name: 'Herbal Potli Compress / Botanical Oil',
+        durationMinutes: 15,
+        price: 399,
+        description: 'Steamed Ayurvedic herbal pouch with camphor and turmeric.',
       },
     ],
     status: 'confirmed',
@@ -83,7 +83,13 @@ export function getStoredBookings(): Booking[] {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_BOOKINGS));
       return SEED_BOOKINGS;
     }
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    // If old USD seed exists, update to new INR seeds
+    if (parsed.length > 0 && parsed[0].currency === '$') {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_BOOKINGS));
+      return SEED_BOOKINGS;
+    }
+    return parsed;
   } catch {
     return SEED_BOOKINGS;
   }

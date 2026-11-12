@@ -154,7 +154,7 @@ export const MyBookingsModal: React.FC<MyBookingsModalProps> = ({
                       </div>
                       <div>
                         <span className="block text-[10px] uppercase text-neutral-500">Total Settle</span>
-                        <span className="font-bold text-[#c59b6d]">${b.totalAmount}</span>
+                        <span className="font-bold text-[#c59b6d]">₹{b.totalAmount}</span>
                       </div>
                     </div>
 
@@ -300,7 +300,7 @@ export const MyBookingsModal: React.FC<MyBookingsModalProps> = ({
               <div className="flex justify-between border-t border-white/10 pt-2 font-medium">
                 <span className="text-neutral-300">Pay at Reception:</span>
                 <span className="text-[#c59b6d] font-bold text-sm">
-                  ${selectedBookingForPass.totalAmount}
+                  ₹{selectedBookingForPass.totalAmount}
                 </span>
               </div>
             </div>

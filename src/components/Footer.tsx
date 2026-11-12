@@ -83,16 +83,16 @@ export const Footer: React.FC<FooterProps> = ({
               Saga Luxury Spa
             </h4>
             <p className="text-[11px] text-neutral-400">
-              Opulent thermal suites, Italian travertine, and volcanic hot stone rituals.
+              Luxury thermal suites, authentic Thai massage, and private steam chambers on Golf Course Road.
             </p>
             <div className="space-y-1.5 text-xs text-neutral-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#c59b6d] shrink-0 mt-0.5" aria-hidden="true" />
-                <span>740 Grand Boulevard, The Heritage Quarter</span>
+                <span>2nd Floor, DT Mega Mall, Golf Course Road, DLF Phase 1, Gurugram</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#c59b6d] shrink-0" aria-hidden="true" />
-                <span>+1 (800) 724-2772</span>
+                <span>+91 98188 72427</span>
               </div>
             </div>
             <button
@@ -110,16 +110,16 @@ export const Footer: React.FC<FooterProps> = ({
               Signature Spa
             </h4>
             <p className="text-[11px] text-neutral-400">
-              Mindful urban restoration, Thai herbal compress, and Scandinavian bodywork.
+              Holistic wellness, Thai herbal potli compress, and 4-hand bodywork on MG Road.
             </p>
             <div className="space-y-1.5 text-xs text-neutral-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#8cae98] shrink-0 mt-0.5" aria-hidden="true" />
-                <span>215 Orchard Way, Promenade Plaza</span>
+                <span>Ground Floor, G-34, MGF Mega City Mall, MG Road, Gurugram</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#8cae98] shrink-0" aria-hidden="true" />
-                <span>+1 (800) 744-6288</span>
+                <span>+91 98114 74462</span>
               </div>
             </div>
             <button

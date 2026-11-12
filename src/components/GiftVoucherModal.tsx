@@ -14,7 +14,7 @@ export const GiftVoucherModal: React.FC<GiftVoucherModalProps> = ({
   partners,
 }) => {
   const [targetSpa, setTargetSpa] = useState<string>('any');
-  const [amount, setAmount] = useState<number>(200);
+  const [amount, setAmount] = useState<number>(2500);
   const [customAmount, setCustomAmount] = useState<string>('');
   const [recipientName, setRecipientName] = useState<string>('');
   const [recipientEmail, setRecipientEmail] = useState<string>('');
@@ -110,10 +110,10 @@ export const GiftVoucherModal: React.FC<GiftVoucherModalProps> = ({
               {/* Amount Selection */}
               <div>
                 <label className="block text-xs uppercase tracking-wider text-neutral-400 font-semibold mb-2">
-                  Voucher Value (USD)
+                  Voucher Value (INR)
                 </label>
                 <div className="grid grid-cols-4 gap-2.5 mb-2.5">
-                  {[120, 200, 350, 500].map((val) => (
+                  {[1500, 2500, 4000, 6000].map((val) => (
                     <button
                       key={val}
                       type="button"
@@ -127,13 +127,13 @@ export const GiftVoucherModal: React.FC<GiftVoucherModalProps> = ({
                           : 'border-white/10 bg-black/30 text-neutral-300 hover:bg-white/5'
                       }`}
                     >
-                      ${val}
+                      ₹{val}
                     </button>
                   ))}
                 </div>
                 <input
                   type="number"
-                  placeholder="Or enter custom dollar amount..."
+                  placeholder="Or enter custom amount (e.g. ₹3500)..."
                   value={customAmount}
                   onChange={(e) => setCustomAmount(e.target.value)}
                   className="w-full p-2.5 rounded-xl bg-black/50 border border-white/10 text-white text-xs placeholder-neutral-500 focus:outline-none focus:border-[#c59b6d]"
@@ -202,7 +202,7 @@ export const GiftVoucherModal: React.FC<GiftVoucherModalProps> = ({
                 type="submit"
                 className="w-full py-3 rounded-xl font-semibold text-xs tracking-wider uppercase text-black bg-gradient-to-r from-[#dec3a0] to-[#c59b6d] hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-[#c59b6d]/20"
               >
-                Create Digital Voucher (${currentAmount})
+                Create Digital Voucher (₹{currentAmount})
               </button>
             </form>
           ) : (
@@ -239,7 +239,7 @@ export const GiftVoucherModal: React.FC<GiftVoucherModalProps> = ({
                     </h5>
                   </div>
                   <span className="font-serif-luxury text-2xl font-bold text-[#c59b6d]">
-                    ${currentAmount}
+                    ₹{currentAmount}
                   </span>
                 </div>
 

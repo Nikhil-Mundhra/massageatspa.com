@@ -131,7 +131,7 @@ export const ConciergePortal: React.FC<ConciergePortalProps> = ({
                 <span>Projected Revenue</span>
                 <DollarSign className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />
               </div>
-              <span className="text-2xl font-bold text-[#c59b6d]">${totalRevenue}</span>
+              <span className="text-2xl font-bold text-[#c59b6d]">₹{totalRevenue}</span>
               <span className="block text-[11px] text-neutral-500 mt-0.5">
                 Settled upon arrival
               </span>
@@ -203,7 +203,7 @@ export const ConciergePortal: React.FC<ConciergePortalProps> = ({
                         <div className="flex items-center gap-3 self-end md:self-center shrink-0">
                           <div className="text-right mr-2">
                             <span className="text-xs font-semibold text-white block">
-                              ${b.totalAmount}
+                              ₹{b.totalAmount}
                             </span>
                             <span className="text-[10px] text-neutral-500 capitalize">
                               {b.paymentMethod.replace('-', ' ')}
