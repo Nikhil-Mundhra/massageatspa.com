@@ -46,42 +46,16 @@ python3 scripts/trim_skills.py --remove totalsegmentator,kaggle,esf-audit-verifi
 
 | Skill Name | Category | Description |
 | :--- | :--- | :--- |
-| `cnn-unet-architect` | Deep Learning & Medical Computer Vision | Architectural specifications, tensor dimension contracts, mathematical loss formulations, and design rules for building U-Net and deep CNN models. |
-| `cohort-dataset-splitting` | Deep Learning & Medical Computer Vision | Clinical ophthalmic OCT dataset auditing, QC outlier filtering, and zero-leakage stratified train/validation cohort splitting. |
-| `competence50-course-builder` | Specialized Domain, Auditing & Demos | Scaffolds, manages, or validates the 5-module Competence 5.0 course structure with the 3 content lanes. |
-| `data-lake-and-zone-architecture` | Enterprise Data Engineering & Lakehouse | Guides agents through data lake and zone architecture design across raw, refined, curated, and publish layers. |
-| `data-quality-and-contract-testing` | Enterprise Data Engineering & Lakehouse | Drives data implementation with contracts, assertions, and validation evidence before publishing. |
-| `data-reconciliation-and-financial-controls` | Enterprise Data Engineering & Lakehouse | Guides agents through reconciliation and control design for business-critical and financial data. |
-| `dct-tourism-hackathon-reviewer` | Specialized Domain, Auditing & Demos | Review, score, and improve submissions for the Advanced Technology Pioneers 2026 DCT challenge. |
-| `diagnose-model-health` | Deep Learning & Medical Computer Vision | Runs a strict, predefined battery of diagnostic tests against a model checkpoint to verify network health. |
-| `docmancer` | Codebase & Documentation Navigation | Query local context, fetch public documentation, and retrieve API references using the docmancer CLI. |
+| `docmancer` | Codebase & Documentation Navigation | Query local context, fetch public documentation, and retrieve API references using the docmancer CLI |
 | `document-manipulation` | Publishing, Diagrams & Content Polish | Toolkit for manipulating documents including docx to mdx/html conversions and markdown to PDF. |
-| `duckdb-local-analytics-and-dev` | Enterprise Data Engineering & Lakehouse | Guides agents through DuckDB-based local analytics and rapid development workflows. |
-| `esf-audit-verification` | Specialized Domain, Auditing & Demos | Audits, tests, and verifies ESF+ compliance data in Competence 5.0 LMS. |
-| `feature-store-and-ml-data-pipelines` | Enterprise Data Engineering & Lakehouse | Guides agents through machine-learning data pipelines and feature serving workflows. |
-| `file-and-partner-feed-ingestion` | Enterprise Data Engineering & Lakehouse | Guides agents through file-based and partner-feed ingestion workflows with quarantine mechanisms. |
-| `github-issues` | Core Quality & Refactoring | End-to-end toolkit for agents to inspect, audit, verify against codebase and git history, and safely close GitHub issues. |
-| `glassmorphism-ui` | Frontend, UI/UX & Design Systems | Framework-agnostic rules for building frosted-glass (glassmorphism) interfaces and backdrop filters. |
-| `graphify` | Codebase & Documentation Navigation | Use for questions about a codebase, architecture, file relationships, or project content via knowledge graph. |
-| `greeting-demo` | Specialized Domain, Auditing & Demos | Greet the user in a distinctive, easy-to-verify format for skill activation demos. |
-| `humanizer` | Publishing, Diagrams & Content Polish | Rewrite AI-sounding text so it reads naturally without changing what it says. |
-| `kaggle` | Deep Learning & Medical Computer Vision | Mandatory skill for deploying, writing, running, or debugging model training scripts on Kaggle. |
-| `klara-suggestions` | Frontend, UI/UX & Design Systems | Guidelines and architectural rules for debugging, modifying, or extending Klara Suggestion Cards. |
-| `macbook-cnn-training` | Deep Learning & Medical Computer Vision | Execution rules, DataLoader worker limits, and Unified Memory management for PyTorch on Apple Silicon. |
-| `master-data-and-entity-resolution` | Enterprise Data Engineering & Lakehouse | Guides agents through master data and entity resolution workflows and deduplication. |
-| `notebook-to-production-hardening` | Enterprise Data Engineering & Lakehouse | Guides agents through converting exploratory notebooks into production-ready data jobs. |
-| `python-data-engineering-and-pipeline-packaging` | Enterprise Data Engineering & Lakehouse | Guides agents through Python-based data engineering implementation, packaging, and CLI jobs. |
-| `python-scratchpad` | Core Quality & Refactoring | Isolated test scripts and execution scratchpad for fast Python validation. |
-| `quality-assurance` | Core Quality & Refactoring | Automatic quality control, testing patterns, and static analysis procedures. |
-| `refactor` | Core Quality & Refactoring | Surgical code refactoring to improve maintainability without changing external behavior. |
-| `rest-api-caller` | Core Quality & Refactoring | Call REST APIs from Python, parse JSON responses, and report structured data. |
-| `run-opencode` | Core Quality & Refactoring | Run OpenCode CLI for AI-powered code analysis, refactoring, and troubleshooting. |
-| `run-segmentation-training` | Deep Learning & Medical Computer Vision | Executes the fine-tuning training loop for hierarchical U-Net segmentation models. |
-| `scientific-diagram-architect` | Publishing, Diagrams & Content Polish | Architectural specifications and vector-to-raster rendering for publication-quality diagrams. |
-| `semantic-layer-and-metric-governance` | Enterprise Data Engineering & Lakehouse | Guides agents through semantic layer and shared metric design and governance. |
-| `totalsegmentator` | Deep Learning & Medical Computer Vision | Non-interactive anatomical segmentation CLI and run-report parsing for medical imaging. |
-| `warehouse-and-schema-design` | Enterprise Data Engineering & Lakehouse | Guides agents through data warehouse and schema design, fact/dim modeling, and keys. |
-| `wealth-advisor-ui` | Frontend, UI/UX & Design Systems | Design and build UI for wealth advisor frontend (React 19, Tailwind 4, CVA, React Hook Form). |
+| `github-issues` | Core Quality & Refactoring | End-to-end toolkit for agents to inspect, audit, verify against codebase and git history, and safely |
+| `glassmorphism-ui` | Frontend, UI/UX & Design Systems | Framework-agnostic rules for building frosted-glass (glassmorphism) interfaces. Use when asked for g |
+| `graphify` | Codebase & Documentation Navigation | Use for any question about a codebase, its architecture, file relationships, or project content — es |
+| `humanizer` | Publishing, Diagrams & Content Polish | Rewrite AI-sounding text so it reads like the writer without changing what it says. Use when editing |
+| `quality-assurance` | Core Quality & Refactoring | Automatic quality control, testing patterns, and static analysis procedures. Covers linting, formatt |
+| `refactor` | Core Quality & Refactoring | Surgical code refactoring to improve maintainability without changing external behavior. Covers extr |
+| `rest-api-caller` | Core Quality & Refactoring | Call REST APIs from Python, parse JSON responses, and report the useful fields back to the user. |
+| `wealth-advisor-ui` | Frontend, UI/UX & Design Systems | Design and build UI for the wealth advisor frontend (React 19, Tailwind 4, CVA, React Hook Form, Rea |
 
 <!-- END_ACTIVE_SKILLS -->
 
@@ -90,8 +64,35 @@ python3 scripts/trim_skills.py --remove totalsegmentator,kaggle,esf-audit-verifi
 ## Removed Skills
 
 <!-- BEGIN_REMOVED_SKILLS -->
+_Last trimmed on 2026-11-12 12:55:15. Reason: Applied preset 'web-app'_
 
-_No skills removed yet. Full suite intact._
+- `cnn-unet-architect` (Deep Learning & Medical Computer Vision)
+- `cohort-dataset-splitting` (Deep Learning & Medical Computer Vision)
+- `competence50-course-builder` (Specialized Domain, Auditing & Demos)
+- `data-lake-and-zone-architecture` (Enterprise Data Engineering & Lakehouse)
+- `data-quality-and-contract-testing` (Enterprise Data Engineering & Lakehouse)
+- `data-reconciliation-and-financial-controls` (Enterprise Data Engineering & Lakehouse)
+- `dct-tourism-hackathon-reviewer` (Specialized Domain, Auditing & Demos)
+- `diagnose-model-health` (Deep Learning & Medical Computer Vision)
+- `duckdb-local-analytics-and-dev` (Enterprise Data Engineering & Lakehouse)
+- `esf-audit-verification` (Specialized Domain, Auditing & Demos)
+- `feature-store-and-ml-data-pipelines` (Enterprise Data Engineering & Lakehouse)
+- `file-and-partner-feed-ingestion` (Enterprise Data Engineering & Lakehouse)
+- `greeting-demo` (Specialized Domain, Auditing & Demos)
+- `ipmi-visual-architect` (Publishing, Diagrams & Content Polish)
+- `kaggle` (Deep Learning & Medical Computer Vision)
+- `klara-suggestions` (Frontend, UI/UX & Design Systems)
+- `macbook-cnn-training` (Deep Learning & Medical Computer Vision)
+- `master-data-and-entity-resolution` (Enterprise Data Engineering & Lakehouse)
+- `notebook-to-production-hardening` (Enterprise Data Engineering & Lakehouse)
+- `python-data-engineering-and-pipeline-packaging` (Enterprise Data Engineering & Lakehouse)
+- `python-scratchpad` (Core Quality & Refactoring)
+- `run-opencode` (Core Quality & Refactoring)
+- `run-segmentation-training` (Deep Learning & Medical Computer Vision)
+- `scientific-diagram-architect` (Publishing, Diagrams & Content Polish)
+- `semantic-layer-and-metric-governance` (Enterprise Data Engineering & Lakehouse)
+- `totalsegmentator` (Deep Learning & Medical Computer Vision)
+- `warehouse-and-schema-design` (Enterprise Data Engineering & Lakehouse)
 
 <!-- END_REMOVED_SKILLS -->
 
