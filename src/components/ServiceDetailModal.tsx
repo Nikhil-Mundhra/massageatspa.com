@@ -40,10 +40,10 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           {/* Badge & Title */}
           <div className="absolute bottom-5 left-6 right-6">
             <div className="flex items-center gap-2 mb-2">
-              <span className="accent-pill text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#c59b6d] bg-black/80 backdrop-blur-md px-2.5 py-1 rounded border border-[#c59b6d]/30">
                 {partner ? partner.name : service.spaId}
               </span>
-              <span className="text-[10px] text-neutral-300 bg-black/70 px-2.5 py-1 rounded-full border border-white/10 font-medium">
+              <span className="text-[10px] text-neutral-300 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded border border-white/10 font-medium uppercase tracking-wider">
                 {service.category}
               </span>
             </div>
@@ -75,7 +75,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                   key={idx}
                   className="flex items-start gap-3 p-3.5 surface-inset"
                 >
-                  <span className="w-5 h-5 rounded-full accent-pill text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="w-5 h-5 rounded surface-inset border border-[#c59b6d]/40 text-[#c59b6d] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                     {idx + 1}
                   </span>
                   <span className="text-xs text-neutral-300 leading-snug">{step}</span>

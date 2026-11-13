@@ -584,10 +584,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         key={area}
                         type="button"
                         onClick={() => toggleFocusArea(area)}
-                        className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+                        className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all ${
                           isSelected
-                            ? 'accent-pill font-semibold'
-                            : 'surface-inset text-neutral-400 hover:text-white'
+                            ? 'bg-[#c59b6d] text-black border-[#c59b6d] font-semibold shadow-sm'
+                            : 'surface-inset text-neutral-400 hover:text-white hover:border-white/20'
                         }`}
                       >
                         {area}
@@ -804,7 +804,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           {/* STEP 4: CONFIRMATION & DIGITAL SPA PASS */}
           {step === 4 && confirmedBooking && (
             <div className="space-y-6 text-center">
-              <div className="w-16 h-16 rounded-full accent-pill flex items-center justify-center mx-auto text-[#c59b6d]">
+              <div className="w-16 h-16 rounded-2xl surface-inset border border-[#c59b6d]/40 flex items-center justify-center mx-auto text-[#c59b6d] shadow-lg shadow-[#c59b6d]/10">
                 <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
               </div>
 

@@ -102,7 +102,7 @@ export const ServicesExplorer: React.FC<ServicesExplorerProps> = ({
               />
             </div>
 
-            {/* Spa Partner Buttons: Single accent, clear states */}
+            {/* Spa Partner Buttons: Single accent, clean controls */}
             <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-1 sm:pb-0">
               <span className="text-xs text-neutral-400 font-medium mr-1 hidden sm:inline">
                 Sanctuary:
@@ -143,18 +143,20 @@ export const ServicesExplorer: React.FC<ServicesExplorerProps> = ({
             </div>
           </div>
 
-          {/* Row 2: Categories */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs border-t border-white/[0.06] pt-3">
-            <span className="text-neutral-500 font-medium whitespace-nowrap">Focus:</span>
+          {/* Row 2: Categories as Clean Editorial Tabs (No Pills) */}
+          <div className="flex items-center gap-4 overflow-x-auto pb-1 text-xs border-t border-white/[0.06] pt-3">
+            <span className="text-neutral-500 font-medium uppercase tracking-wider text-[11px] whitespace-nowrap">
+              Focus Area:
+            </span>
             {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => handleFilterChange(() => setCategoryFilter(cat))}
-                className={`px-3 py-1.5 rounded-full whitespace-nowrap text-xs font-medium transition-colors ${
+                className={`pb-1 whitespace-nowrap text-xs font-medium tracking-wide transition-all border-b-2 ${
                   categoryFilter === cat
-                    ? 'accent-pill font-semibold'
-                    : 'text-neutral-400 hover:text-white hover:bg-white/[0.04]'
+                    ? 'border-[#c59b6d] text-white font-semibold'
+                    : 'border-transparent text-neutral-400 hover:text-white'
                 }`}
               >
                 {cat === 'all' ? 'All Therapies' : cat}
@@ -196,7 +198,7 @@ export const ServicesExplorer: React.FC<ServicesExplorerProps> = ({
             ))}
           </div>
         ) : (
-          /* Fewer Cards, More Room (2 columns on desktop) */
+          /* Spacious 2-Column Cards without Pill Clutter */
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {filteredServices.map((service) => {
               const isSaga = service.spaId === 'saga-luxury-spa';
@@ -211,7 +213,7 @@ export const ServicesExplorer: React.FC<ServicesExplorerProps> = ({
                   key={service.id}
                   className="group flex flex-col surface-card surface-card-hover overflow-hidden shadow-xl"
                 >
-                  {/* Image with Location Tag */}
+                  {/* Clean Image with Crisp Location Tag (No rounded pills) */}
                   <div className="relative h-60 w-full overflow-hidden">
                     <img
                       src={service.image}
@@ -220,19 +222,10 @@ export const ServicesExplorer: React.FC<ServicesExplorerProps> = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111317] via-transparent to-transparent" />
 
-                    {/* Sanctuary Pill Badge */}
-                    <div className="absolute top-4 left-4 flex items-center gap-2">
-                      <span className="accent-pill text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
-                        {isSaga ? 'Saga Luxury (DT Mega Mall)' : 'Signature Spa (MGF Mega City)'}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-neutral-300">
-                      <span className="bg-black/60 px-2.5 py-1 rounded-full border border-white/10 font-medium">
-                        {service.category}
-                      </span>
-                      <span className="bg-black/60 px-2.5 py-1 rounded-full border border-white/10 font-medium">
-                        {service.intensity}
+                    {/* Crisp Rectangular Location Tag */}
+                    <div className="absolute top-4 left-4">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#c59b6d] bg-black/80 backdrop-blur-md px-2.5 py-1 rounded border border-white/10">
+                        {isSaga ? 'DT Mega Mall, Golf Course Rd' : 'MGF Mega City Mall, MG Rd'}
                       </span>
                     </div>
                   </div>
@@ -240,6 +233,13 @@ export const ServicesExplorer: React.FC<ServicesExplorerProps> = ({
                   {/* Card Content with Generous Spacing */}
                   <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                     <div>
+                      {/* Integrated Metadata Row (Replaced floating pill badges) */}
+                      <div className="flex items-center gap-2 text-[11px] font-medium tracking-wider uppercase text-neutral-400 mb-2">
+                        <span>{service.category}</span>
+                        <span className="text-neutral-600">·</span>
+                        <span className="text-[#c59b6d]">{service.intensity}</span>
+                      </div>
+
                       <h3 className="font-serif-luxury text-2xl font-medium text-white mb-2 leading-snug group-hover:text-[#c59b6d] transition-colors">
                         {service.title}
                       </h3>
@@ -276,7 +276,7 @@ export const ServicesExplorer: React.FC<ServicesExplorerProps> = ({
                         </div>
                       </div>
 
-                      {/* Duration Buttons: Unified corner radius */}
+                      {/* Duration Buttons */}
                       <div className="grid grid-cols-3 gap-2 mb-5">
                         {service.durationOptions.map((opt) => (
                           <button
@@ -320,11 +320,11 @@ export const ServicesExplorer: React.FC<ServicesExplorerProps> = ({
           </div>
         )}
 
-        {/* Point 12: Designed Empty State */}
+        {/* Designed Empty State */}
         {!isFiltering && filteredServices.length === 0 && (
           <div className="text-center py-20 px-6 surface-card rounded-2xl max-w-xl mx-auto shadow-2xl">
-            <div className="w-14 h-14 rounded-full accent-pill flex items-center justify-center mx-auto mb-4">
-              <AlertCircle className="w-7 h-7 text-[#c59b6d]" aria-hidden="true" />
+            <div className="w-12 h-12 rounded-xl surface-inset border border-[#c59b6d]/30 flex items-center justify-center mx-auto mb-4">
+              <AlertCircle className="w-6 h-6 text-[#c59b6d]" aria-hidden="true" />
             </div>
             <h4 className="font-serif-luxury text-2xl text-white font-medium mb-2">
               No matching therapies found

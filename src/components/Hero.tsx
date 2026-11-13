@@ -25,23 +25,22 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onSelectPartner }) => {
   };
 
   return (
-    <div className="relative overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-28 border-b border-white/[0.08]">
+    <div className="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-28 border-b border-white/[0.08]">
       {/* Generative Organic Topography Canvas */}
       <AmbientCanvas />
 
       {/* Subtle single-accent glow */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#c59b6d]/[0.07] rounded-full blur-[140px] pointer-events-none"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#c59b6d]/[0.06] rounded-full blur-[140px] pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Top Location Pill */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full accent-pill text-xs font-medium tracking-widest uppercase">
-            <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-            <span>Gurugram Partner Network - Golf Course Rd &amp; MG Rd</span>
-          </div>
+        {/* Top Location Line: Clean editorial typography without pill */}
+        <div className="text-center mb-5">
+          <span className="text-[11px] font-semibold tracking-[0.25em] text-[#c59b6d] uppercase">
+            Gurugram Partner Network · Golf Course Road &amp; MG Road
+          </span>
         </div>
 
         {/* Main Title */}
@@ -159,7 +158,7 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onSelectPartner }) => {
           </form>
         </div>
 
-        {/* Dual Partner Spotlight Cards: Generous spacing, fewer cards, more room */}
+        {/* Dual Partner Spotlight Cards: Clean architectural layout without floating pills */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {SPA_PARTNERS.map((partner) => {
             const isSaga = partner.id === 'saga-luxury-spa';
@@ -168,7 +167,7 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onSelectPartner }) => {
                 key={partner.id}
                 className="group relative surface-card surface-card-hover overflow-hidden shadow-2xl flex flex-col justify-between"
               >
-                {/* Image Header */}
+                {/* Image Header with clean metadata */}
                 <div>
                   <div className="relative h-64 w-full overflow-hidden">
                     <img
@@ -178,12 +177,12 @@ export const Hero: React.FC<HeroProps> = ({ onSearch, onSelectPartner }) => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111317] via-[#111317]/50 to-transparent" />
 
-                    {/* Location Badge */}
+                    {/* Clean top metadata badge - crisp rectangular tags */}
                     <div className="absolute top-4 left-4 flex items-center gap-2">
-                      <span className="accent-pill px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#c59b6d] bg-black/80 backdrop-blur-md px-2.5 py-1 rounded border border-white/10">
                         {isSaga ? 'Golf Course Road' : 'MG Road'}
                       </span>
-                      <span className="px-2.5 py-1 rounded-full text-xs bg-black/70 backdrop-blur-md text-white border border-white/10 flex items-center gap-1 font-medium">
+                      <span className="text-[11px] font-medium text-white bg-black/80 backdrop-blur-md px-2.5 py-1 rounded border border-white/10 flex items-center gap-1">
                         <Star className="w-3 h-3 fill-[#c59b6d] text-[#c59b6d]" aria-hidden="true" />
                         <span>{partner.rating}</span>
                         <span className="text-neutral-400 text-[10px]">({partner.reviewsCount})</span>

@@ -207,7 +207,7 @@ export const GiftVoucherModal: React.FC<GiftVoucherModalProps> = ({
             </form>
           ) : (
             <div className="space-y-6 text-center">
-              <div className="w-14 h-14 rounded-full accent-pill flex items-center justify-center mx-auto text-[#c59b6d]">
+              <div className="w-14 h-14 rounded-2xl surface-inset border border-[#c59b6d]/30 flex items-center justify-center mx-auto text-[#c59b6d]">
                 <Gift className="w-7 h-7" aria-hidden="true" />
               </div>
 

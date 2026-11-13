@@ -113,14 +113,14 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
 
             <div className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
               <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="accent-pill text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                    {isSaga ? 'Golf Course Road' : 'MG Road'}
+                <div className="flex items-center gap-3 mb-2.5">
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#c59b6d] bg-black/80 backdrop-blur-md px-2.5 py-1 rounded border border-[#c59b6d]/30">
+                    {isSaga ? 'Golf Course Road · DLF Phase 1' : 'MG Road · Near Sikanderpur'}
                   </span>
-                  <div className="flex items-center gap-1 text-xs text-[#c59b6d] font-semibold bg-black/70 px-2.5 py-1 rounded-full border border-white/10">
+                  <div className="flex items-center gap-1.5 text-xs text-[#c59b6d] font-semibold bg-black/80 backdrop-blur-md px-2.5 py-1 rounded border border-white/10">
                     <Star className="w-3.5 h-3.5 fill-[#c59b6d]" aria-hidden="true" />
                     <span>{currentPartner.rating}</span>
-                    <span className="text-neutral-400">({currentPartner.reviewsCount} verified reviews)</span>
+                    <span className="text-neutral-400 font-normal">({currentPartner.reviewsCount} reviews)</span>
                   </div>
                 </div>
                 <h3 className="font-serif-luxury text-3xl sm:text-5xl text-white font-medium tracking-tight">
@@ -340,7 +340,7 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
             <button
               type="button"
               onClick={() => setSelectedPhoto(null)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-black/60 text-white hover:bg-black transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-xl bg-black/60 text-white hover:bg-black transition-colors"
               aria-label="Close photo preview"
             >
               Close

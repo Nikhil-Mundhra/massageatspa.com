@@ -11,7 +11,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onBackToHome, onOpen
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-20">
       <div className="surface-card max-w-lg w-full p-8 sm:p-12 text-center shadow-2xl relative overflow-hidden">
         {/* Subtle emblem */}
-        <div className="w-16 h-16 rounded-full accent-pill flex items-center justify-center mx-auto mb-6">
+        <div className="w-16 h-16 rounded-2xl surface-inset border border-[#c59b6d]/30 flex items-center justify-center mx-auto mb-6">
           <Sparkles className="w-8 h-8 text-[#c59b6d]" aria-hidden="true" />
         </div>
 

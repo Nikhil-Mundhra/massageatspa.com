@@ -55,7 +55,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Brand info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full accent-pill flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl surface-inset border border-[#c59b6d]/40 flex items-center justify-center">
                 <Sparkles className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />
               </div>
               <span className="font-serif-luxury text-xl font-semibold tracking-wider text-white">

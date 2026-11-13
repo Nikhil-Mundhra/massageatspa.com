@@ -119,9 +119,9 @@ export const MyBookingsModal: React.FC<MyBookingsModalProps> = ({
                             {b.spaName}
                           </h4>
                           <span
-                            className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                            className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
                               isConfirmed
-                                ? 'accent-pill'
+                                ? 'bg-[#c59b6d]/15 text-[#c59b6d] border border-[#c59b6d]/30'
                                 : 'bg-red-950/40 text-red-400 border border-red-500/30'
                             }`}
                           >
@@ -217,7 +217,7 @@ export const MyBookingsModal: React.FC<MyBookingsModalProps> = ({
           ) : (
             /* Point 12: Designed Empty State for Bookings */
             <div className="text-center py-14 px-6 surface-inset max-w-md mx-auto">
-              <div className="w-12 h-12 rounded-full accent-pill flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 rounded-xl surface-inset border border-[#c59b6d]/30 flex items-center justify-center mx-auto mb-3">
                 <Calendar className="w-6 h-6 text-[#c59b6d]" aria-hidden="true" />
               </div>
               <h4 className="font-serif-luxury text-xl text-white font-medium mb-1">
@@ -283,7 +283,7 @@ export const MyBookingsModal: React.FC<MyBookingsModalProps> = ({
               <button
                 type="button"
                 onClick={() => setSelectedBookingForPass(null)}
-                className="p-1.5 rounded-full text-neutral-400 hover:text-white"
+                className="p-1.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/10"
               >
                 <X className="w-5 h-5" aria-hidden="true" />
               </button>

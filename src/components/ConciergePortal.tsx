@@ -53,12 +53,12 @@ export const ConciergePortal: React.FC<ConciergePortalProps> = ({
         {/* Header */}
         <div className="px-6 py-5 border-b border-white/[0.08] flex items-center justify-between bg-black/50">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl accent-pill flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl surface-inset border border-[#c59b6d]/30 flex items-center justify-center">
               <Building2 className="w-5 h-5 text-[#c59b6d]" aria-hidden="true" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-widest accent-pill px-2.5 py-0.5 rounded-full">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#c59b6d] bg-[#c59b6d]/10 border border-[#c59b6d]/30 px-2 py-0.5 rounded">
                   PARTNER DESK
                 </span>
                 <span className="text-xs text-neutral-400">Front Desk &amp; Concierge Console</span>
@@ -164,7 +164,7 @@ export const ConciergePortal: React.FC<ConciergePortalProps> = ({
                         }`}
                       >
                         <div className="flex items-start gap-3">
-                          <div className="w-9 h-9 rounded-full accent-pill flex items-center justify-center font-serif-luxury text-sm font-semibold text-white shrink-0">
+                          <div className="w-9 h-9 rounded-xl surface-inset border border-[#c59b6d]/30 flex items-center justify-center font-serif-luxury text-sm font-semibold text-[#c59b6d] shrink-0">
                             {b.guestName.charAt(0)}
                           </div>
                           <div>
@@ -174,12 +174,12 @@ export const ConciergePortal: React.FC<ConciergePortalProps> = ({
                                 {b.bookingCode}
                               </span>
                               {isCancelled && (
-                                <span className="text-[10px] text-red-400 border border-red-500/30 px-2 py-0.5 rounded-full bg-red-950/20">
+                                <span className="text-[10px] text-red-400 border border-red-500/30 px-2 py-0.5 rounded bg-red-950/20">
                                   [CANCELLED]
                                 </span>
                               )}
                               {isCheckedIn && (
-                                <span className="text-[10px] text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full bg-emerald-950/20">
+                                <span className="text-[10px] text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded bg-emerald-950/20">
                                   [CHECKED IN]
                                 </span>
                               )}

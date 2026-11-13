@@ -39,7 +39,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ testim
                         <Star key={i} className="w-3.5 h-3.5 fill-[#c59b6d]" aria-hidden="true" />
                       ))}
                     </div>
-                    <span className="accent-pill text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#c59b6d] bg-white/[0.04] border border-[#c59b6d]/30 px-2 py-0.5 rounded">
                       {isSaga ? 'DT Mega Mall' : 'MGF Mega City'}
                     </span>
                   </div>
