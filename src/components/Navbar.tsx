@@ -39,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </a>
 
           {/* Desktop Navigation Links: Visible on large desktop with generous luxury spacing */}
-          <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10 text-xs uppercase tracking-widest font-medium text-neutral-300">
+          <nav className="hidden xl:flex items-center space-x-8 xl:space-x-10 text-xs uppercase tracking-widest font-medium text-neutral-300">
             <a href="#partners" className="hover:text-[#c59b6d] transition-colors whitespace-nowrap">
               Partner Spas
             </a>
@@ -101,11 +101,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>Book<span className="hidden sm:inline"> Visit</span></span>
             </button>
 
-            {/* Responsive Menu Toggle (Visible below lg) */}
+            {/* Responsive Menu Toggle (Visible below xl) */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-neutral-400 hover:text-white hover:bg-white/5 transition-colors border border-transparent hover:border-white/10"
+              className="xl:hidden p-2 rounded-xl text-neutral-400 hover:text-white hover:bg-white/5 transition-colors border border-transparent hover:border-white/10"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? (
@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Drawer Menu for Tablet and Mobile */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-white/10 bg-[#0d0f12] px-6 py-5 space-y-4">
+        <div className="xl:hidden border-t border-white/10 bg-[#0d0f12] px-6 py-5 space-y-4">
           <nav className="flex flex-col space-y-3 text-sm font-medium text-neutral-300">
             <a
               href="#partners"
