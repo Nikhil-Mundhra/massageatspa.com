@@ -27,12 +27,12 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
           {/* Brand Logo: Clean, single-line luxury typography */}
-          <a href="#" className="flex items-center gap-2.5 shrink-0 group text-left">
+          <a href="#" className="flex items-center gap-2 sm:gap-2.5 shrink-0 group text-left">
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-[#c59b6d]/40 flex items-center justify-center bg-[#15181c] group-hover:border-[#c59b6d] transition-colors">
               <Sparkles className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif-luxury text-base sm:text-lg lg:text-xl tracking-[0.2em] font-medium text-white whitespace-nowrap">
+              <span className="font-serif-luxury text-sm sm:text-lg lg:text-xl tracking-[0.15em] sm:tracking-[0.2em] font-medium text-white whitespace-nowrap">
                 MASSAGE AT SPA
               </span>
             </div>
@@ -59,8 +59,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Right Action Elements */}
-          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-            {/* Subtle Concierge Icon Button */}
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            {/* Subtle Concierge Icon Button (Desktop XL only) */}
             <button
               type="button"
               onClick={onOpenConcierge}
@@ -75,17 +75,17 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="text-[11px] uppercase">Concierge</span>
             </button>
 
-            {/* My Bookings Control */}
+            {/* My Bookings Control: Icon only on mobile, text on sm+ */}
             <button
               type="button"
               onClick={onOpenMyBookings}
-              className="relative flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-medium text-neutral-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-colors whitespace-nowrap"
+              className="relative flex items-center justify-center gap-1.5 p-2 sm:px-3.5 sm:py-2 rounded-xl text-xs font-medium text-neutral-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-colors whitespace-nowrap"
               aria-label="View my bookings"
             >
-              <Calendar className="w-3.5 h-3.5 text-[#c59b6d]" aria-hidden="true" />
-              <span>Bookings</span>
+              <Calendar className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#c59b6d]" aria-hidden="true" />
+              <span className="hidden sm:inline">Bookings</span>
               {confirmedCount > 0 && (
-                <span className="flex items-center justify-center min-w-4 h-4 px-1 text-[10px] font-bold text-black bg-[#c59b6d] rounded">
+                <span className="flex items-center justify-center min-w-4 h-4 px-1 text-[10px] font-bold text-black bg-[#c59b6d] rounded sm:static absolute -top-1 -right-1 shadow-sm">
                   {confirmedCount}
                 </span>
               )}
@@ -95,10 +95,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => onOpenBooking()}
-              className="flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-bold tracking-wider uppercase text-black bg-gradient-to-r from-[#dec3a0] to-[#c59b6d] hover:brightness-110 active:scale-95 transition-all shadow-md shadow-[#c59b6d]/15 whitespace-nowrap"
+              className="flex items-center gap-1.5 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-bold tracking-wider uppercase text-black bg-gradient-to-r from-[#dec3a0] to-[#c59b6d] hover:brightness-110 active:scale-95 transition-all shadow-md shadow-[#c59b6d]/15 whitespace-nowrap"
             >
-              <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Book Visit</span>
+              <ShieldCheck className="w-3.5 h-3.5 hidden sm:inline" aria-hidden="true" />
+              <span>Book<span className="hidden sm:inline"> Visit</span></span>
             </button>
 
             {/* Responsive Menu Toggle (Visible below lg) */}
