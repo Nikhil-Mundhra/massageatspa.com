@@ -11,6 +11,7 @@ import { ServiceDetailModal } from './components/ServiceDetailModal';
 import { MyBookingsModal } from './components/MyBookingsModal';
 import { ConciergePortal } from './components/ConciergePortal';
 import { GiftVoucherModal } from './components/GiftVoucherModal';
+import { NotFoundPage } from './components/NotFoundPage';
 
 import { SPA_PARTNERS, SPA_SERVICES, TESTIMONIALS } from './data/spas';
 import { Booking, SpaService } from './types';
@@ -19,6 +20,9 @@ import { getStoredBookings } from './utils/bookingStore';
 export const App: React.FC = () => {
   // Bookings state from localStorage
   const [bookings, setBookings] = useState<Booking[]>([]);
+
+  // Navigation / 404 state
+  const [is404Active, setIs404Active] = useState(false);
 
   // Modal open states
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -45,7 +49,7 @@ export const App: React.FC = () => {
   >('all');
   const [servicesCategoryFilter, setServicesCategoryFilter] = useState<string>('all');
 
-  // Temporary toast notification
+  // Meaningful toast notification (Point 16)
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Load initial bookings
@@ -53,13 +57,26 @@ export const App: React.FC = () => {
     setBookings(getStoredBookings());
   }, []);
 
+  // Dynamic Tab Title (Point 3)
+  useEffect(() => {
+    if (isBookingOpen) {
+      document.title = 'Booking Appointment | MassageAtSpa';
+    } else if (isMyBookingsOpen) {
+      document.title = 'My Reservations | MassageAtSpa';
+    } else if (is404Active) {
+      document.title = '404 - Sanctuary Not Found | MassageAtSpa';
+    } else {
+      document.title = 'MassageAtSpa | Verified Spa Reservations in Gurugram';
+    }
+  }, [isBookingOpen, isMyBookingsOpen, is404Active]);
+
   const refreshBookings = () => {
     setBookings(getStoredBookings());
   };
 
   const handleBookingConfirmed = (newBooking: Booking) => {
     refreshBookings();
-    setToastMessage(`Reservation confirmed! Reference code: ${newBooking.bookingCode}`);
+    setToastMessage(`Reservation confirmed. Gate Reference: ${newBooking.bookingCode}`);
     setTimeout(() => {
       setToastMessage(null);
     }, 6000);
@@ -93,7 +110,6 @@ export const App: React.FC = () => {
     if (category) {
       setServicesCategoryFilter(category);
     }
-    // Scroll smoothly to treatments
     const el = document.getElementById('treatments');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -120,16 +136,16 @@ export const App: React.FC = () => {
     SPA_PARTNERS.find((p) => p.id === selectedServiceForDetail?.spaId) || SPA_PARTNERS[0];
 
   return (
-    <div className="min-h-screen bg-[#0b0d0e] text-[#ede8df] flex flex-col selection:bg-[#c59b6d] selection:text-black">
-      {/* Toast Notification */}
+    <div className="min-h-screen bg-[#0a0b0d] text-[#f5f2eb] flex flex-col selection:bg-[#c59b6d] selection:text-black">
+      {/* Toast Notification with Meaningful Slide-in Animation (Point 16) */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 p-4 rounded-2xl glass-panel-elevated border border-[#c59b6d] shadow-2xl flex items-center gap-3 max-w-md animate-bounce">
+        <div className="fixed bottom-6 right-6 z-50 p-4 rounded-xl surface-elevated border border-[#c59b6d]/60 shadow-2xl flex items-center gap-3 max-w-md transition-all duration-300 transform translate-y-0 opacity-100">
           <div className="w-2.5 h-2.5 rounded-full bg-[#c59b6d] shrink-0" />
           <span className="text-xs text-white font-medium">{toastMessage}</span>
           <button
             type="button"
             onClick={() => setToastMessage(null)}
-            className="text-neutral-400 hover:text-white text-xs ml-auto"
+            className="text-neutral-400 hover:text-white text-xs ml-auto pl-2"
           >
             Dismiss
           </button>
@@ -148,32 +164,44 @@ export const App: React.FC = () => {
 
       {/* Main Content */}
       <main className="flex-1">
-        {/* Hero */}
-        <Hero onSearch={handleHeroSearch} onSelectPartner={handleSelectPartner} />
+        {is404Active ? (
+          <NotFoundPage
+            onBackToHome={() => setIs404Active(false)}
+            onOpenBooking={() => {
+              setIs404Active(false);
+              openBookingModal();
+            }}
+          />
+        ) : (
+          <>
+            {/* Hero */}
+            <Hero onSearch={handleHeroSearch} onSelectPartner={handleSelectPartner} />
 
-        {/* Dual Partner Showcase */}
-        <PartnerShowcase
-          partners={SPA_PARTNERS}
-          activePartnerId={activePartnerId}
-          onSelectPartnerId={setActivePartnerId}
-          onBookAtSpa={(id) => openBookingModal(id)}
-          onFilterMenuBySpa={handleFilterMenuBySpa}
-        />
+            {/* Dual Partner Showcase */}
+            <PartnerShowcase
+              partners={SPA_PARTNERS}
+              activePartnerId={activePartnerId}
+              onSelectPartnerId={setActivePartnerId}
+              onBookAtSpa={(id) => openBookingModal(id)}
+              onFilterMenuBySpa={handleFilterMenuBySpa}
+            />
 
-        {/* Treatment Menu Explorer */}
-        <ServicesExplorer
-          services={SPA_SERVICES}
-          initialSpaFilter={servicesSpaFilter}
-          initialCategoryFilter={servicesCategoryFilter}
-          onSelectServiceDetails={(srv) => setSelectedServiceForDetail(srv)}
-          onBookService={(srv, duration) => openBookingModal(srv.spaId, srv.id, duration)}
-        />
+            {/* Treatment Menu Explorer */}
+            <ServicesExplorer
+              services={SPA_SERVICES}
+              initialSpaFilter={servicesSpaFilter}
+              initialCategoryFilter={servicesCategoryFilter}
+              onSelectServiceDetails={(srv) => setSelectedServiceForDetail(srv)}
+              onBookService={(srv, duration) => openBookingModal(srv.spaId, srv.id, duration)}
+            />
 
-        {/* Sanctuary Standards */}
-        <SanctuaryStandards />
+            {/* Sanitation Standards */}
+            <SanctuaryStandards />
 
-        {/* Testimonials */}
-        <TestimonialsSection testimonials={TESTIMONIALS} />
+            {/* Testimonials */}
+            <TestimonialsSection testimonials={TESTIMONIALS} />
+          </>
+        )}
       </main>
 
       {/* Footer */}

@@ -15,7 +15,6 @@ import {
   Headphones,
   CheckCircle,
   ExternalLink,
-  ChevronRight,
   ShieldCheck,
 } from 'lucide-react';
 import { SpaPartner } from '../types';
@@ -39,51 +38,50 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
   const currentPartner = partners.find((p) => p.id === activePartnerId) || partners[0];
   const isSaga = currentPartner.id === 'saga-luxury-spa';
 
-  // Helper to map amenity icon name to Lucide component
+  // Single unified accent color for amenity icons
   const renderAmenityIcon = (iconName: string) => {
     switch (iconName) {
       case 'Flame':
         return <Flame className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />;
       case 'CloudFog':
-        return <CloudFog className="w-4 h-4 text-[#8cae98]" aria-hidden="true" />;
+        return <CloudFog className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />;
       case 'HeartHandshake':
         return <HeartHandshake className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />;
       case 'Coffee':
         return <Coffee className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />;
       case 'Car':
-        return <Car className="w-4 h-4 text-[#8cae98]" aria-hidden="true" />;
+        return <Car className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />;
       case 'Bed':
-        return <Bed className="w-4 h-4 text-[#8cae98]" aria-hidden="true" />;
+        return <Bed className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />;
       case 'Headphones':
-        return <Headphones className="w-4 h-4 text-[#8cae98]" aria-hidden="true" />;
+        return <Headphones className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />;
       default:
         return <Sparkles className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />;
     }
   };
 
   return (
-    <section id="partners" className="py-16 sm:py-24 border-b border-white/5 relative">
+    <section id="partners" className="py-20 lg:py-28 border-b border-white/[0.08] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs uppercase tracking-widest text-[#c59b6d] font-semibold">
-            Premier Destination Profiles
+            Partner Locations
           </span>
           <h2 className="text-3xl sm:text-5xl font-light text-white mt-2 mb-4 tracking-tight">
-            Discover Our Two Sanctuary Partners
+            Our Two Spa Sanctuaries
           </h2>
           <p className="text-sm sm:text-base text-neutral-300">
-            Each partner offers a distinct sensory philosophy. Select a sanctuary to review facilities,
-            gallery collections, signature amenities, and location directions.
+            Compare facilities, private steam suites, attached showers, and directions for our two accredited
+            Gurugram locations.
           </p>
         </div>
 
         {/* Partner Switcher Tabs */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex p-1.5 rounded-2xl glass-panel border border-white/10 max-w-md w-full">
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex p-1.5 rounded-2xl surface-card border border-white/10 max-w-lg w-full">
             {partners.map((partner) => {
               const selected = partner.id === activePartnerId;
-              const isPartnerSaga = partner.id === 'saga-luxury-spa';
               return (
                 <button
                   key={partner.id}
@@ -91,10 +89,8 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
                   onClick={() => onSelectPartnerId(partner.id)}
                   className={`flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold tracking-wider transition-all duration-200 ${
                     selected
-                      ? isPartnerSaga
-                        ? 'bg-[#c59b6d] text-black shadow-lg shadow-[#c59b6d]/20'
-                        : 'bg-[#8cae98] text-black shadow-lg shadow-[#8cae98]/20'
-                      : 'text-neutral-400 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#c59b6d] text-black shadow-lg shadow-[#c59b6d]/15'
+                      : 'text-neutral-400 hover:text-white hover:bg-white/[0.04]'
                   }`}
                 >
                   {partner.name}
@@ -104,55 +100,49 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
           </div>
         </div>
 
-        {/* Active Partner Detailed Presentation */}
-        <div className="glass-panel rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
-          {/* Top Banner with Key Highlights */}
+        {/* Active Partner Presentation */}
+        <div className="surface-card overflow-hidden shadow-2xl">
+          {/* Top Banner */}
           <div className="relative h-80 sm:h-96 w-full">
             <img
               src={currentPartner.heroImage}
               alt={currentPartner.name}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f12] via-[#0d0f12]/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#111317] via-[#111317]/55 to-transparent" />
 
-            <div className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span
-                    className={`text-[11px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-md ${
-                      isSaga ? 'bg-[#c59b6d] text-black' : 'bg-[#8cae98] text-black'
-                    }`}
-                  >
-                    Partner Sanctuary
+                  <span className="accent-pill text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                    {isSaga ? 'Golf Course Road' : 'MG Road'}
                   </span>
-                  <div className="flex items-center gap-1 text-xs text-amber-400 font-semibold bg-black/60 px-2 py-0.5 rounded border border-white/10">
-                    <Star className="w-3.5 h-3.5 fill-amber-400" aria-hidden="true" />
+                  <div className="flex items-center gap-1 text-xs text-[#c59b6d] font-semibold bg-black/70 px-2.5 py-1 rounded-full border border-white/10">
+                    <Star className="w-3.5 h-3.5 fill-[#c59b6d]" aria-hidden="true" />
                     <span>{currentPartner.rating}</span>
-                    <span className="text-neutral-400">({currentPartner.reviewsCount} reviews)</span>
+                    <span className="text-neutral-400">({currentPartner.reviewsCount} verified reviews)</span>
                   </div>
                 </div>
-                <h3 className="font-serif-luxury text-3xl sm:text-5xl text-white font-medium">
+                <h3 className="font-serif-luxury text-3xl sm:text-5xl text-white font-medium tracking-tight">
                   {currentPartner.name}
                 </h3>
-                <p className="text-sm sm:text-base text-neutral-300 max-w-2xl mt-1">
+                <p className="text-sm sm:text-base text-neutral-300 max-w-2xl mt-1 leading-relaxed">
                   {currentPartner.brandTagline}
                 </p>
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex gap-3 shrink-0">
                 <button
                   type="button"
                   onClick={() => onFilterMenuBySpa(currentPartner.id)}
-                  className="px-4 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors"
+                  className="px-4 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15 transition-colors"
                 >
-                  View Menu ({isSaga ? '5 Rituals' : '5 Therapies'})
+                  View Treatment Menu
                 </button>
                 <button
                   type="button"
                   onClick={() => onBookAtSpa(currentPartner.id)}
-                  className={`px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-black transition-all ${
-                    isSaga ? 'bg-[#c59b6d] hover:bg-[#d8b083]' : 'bg-[#8cae98] hover:bg-[#a1c4ad]'
-                  }`}
+                  className="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-[#c59b6d] hover:bg-[#d6af83] transition-colors shadow-md shadow-[#c59b6d]/15"
                 >
                   Reserve Visit
                 </button>
@@ -161,12 +151,12 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
           </div>
 
           {/* Details Body Grid */}
-          <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
-            {/* Column 1: Story, Atmosphere & Highlights */}
+          <div className="p-6 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-3 gap-10">
+            {/* Column 1: Story, Atmosphere & Facilities */}
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-[#c59b6d] font-semibold mb-2">
-                  Sanctuary Philosophy
+                  Sanctuary Overview
                 </h4>
                 <p className="text-neutral-200 text-sm sm:text-base leading-relaxed mb-4">
                   {currentPartner.description}
@@ -179,13 +169,13 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
               {/* Highlights */}
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-[#c59b6d] font-semibold mb-3">
-                  Distinguishing Signatures
+                  Location Signatures
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {currentPartner.highlights.map((highlight, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/5"
+                      className="flex items-start gap-2.5 p-3.5 surface-inset"
                     >
                       <CheckCircle className="w-4 h-4 text-[#c59b6d] shrink-0 mt-0.5" aria-hidden="true" />
                       <span className="text-xs text-neutral-300 leading-snug">{highlight}</span>
@@ -227,13 +217,13 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
               {/* Amenities Grid */}
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-[#c59b6d] font-semibold mb-3">
-                  Complimentary Guest Facilities
+                  Sanctuary Amenities
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {currentPartner.amenities.map((amenity) => (
                     <div
                       key={amenity.id}
-                      className="p-3.5 rounded-xl bg-black/40 border border-white/5 hover:border-white/15 transition-colors"
+                      className="p-3.5 surface-inset hover:border-white/15 transition-colors"
                     >
                       <div className="flex items-center gap-2 mb-1">
                         {renderAmenityIcon(amenity.iconName)}
@@ -251,10 +241,10 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
             {/* Column 2: Practical Details, Location, Hours & Policies */}
             <div className="space-y-6">
               {/* Location Card */}
-              <div className="p-5 rounded-2xl bg-black/50 border border-white/10 space-y-4">
+              <div className="p-5 surface-inset space-y-4">
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <h4 className="text-xs uppercase tracking-widest text-neutral-400 font-semibold">
-                    Location &amp; Contact
+                    Address &amp; Directions
                   </h4>
                   <span className="text-[11px] text-[#c59b6d] font-medium">{currentPartner.location.city}</span>
                 </div>
@@ -283,15 +273,15 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
                   href={currentPartner.location.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-2 rounded-xl text-xs font-medium text-neutral-300 bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-medium text-neutral-300 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-colors"
                 >
                   <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
-                  <span>Open Directions in Maps</span>
+                  <span>Open in Google Maps</span>
                 </a>
               </div>
 
               {/* Operating Hours */}
-              <div className="p-5 rounded-2xl bg-black/50 border border-white/10 space-y-3">
+              <div className="p-5 surface-inset space-y-3">
                 <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-400 font-semibold border-b border-white/10 pb-3">
                   <Clock className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />
                   <span>Sanctuary Hours</span>
@@ -307,13 +297,13 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
               </div>
 
               {/* Policies */}
-              <div className="p-5 rounded-2xl bg-black/50 border border-white/10 space-y-3 text-xs">
+              <div className="p-5 surface-inset space-y-3 text-xs">
                 <div className="flex items-center gap-2 uppercase tracking-widest text-neutral-400 font-semibold border-b border-white/10 pb-3">
                   <ShieldCheck className="w-4 h-4 text-[#c59b6d]" aria-hidden="true" />
-                  <span>Partner Policies</span>
+                  <span>Sanctuary Policies</span>
                 </div>
                 <div>
-                  <span className="block font-semibold text-white mb-0.5">Arrival Guidance:</span>
+                  <span className="block font-semibold text-white mb-0.5">Arrival Time:</span>
                   <p className="text-neutral-400 leading-relaxed">{currentPartner.policies.arrival}</p>
                 </div>
                 <div>
@@ -321,7 +311,7 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
                   <p className="text-neutral-400 leading-relaxed">{currentPartner.policies.cancellation}</p>
                 </div>
                 <div>
-                  <span className="block font-semibold text-white mb-0.5">Spa Attire:</span>
+                  <span className="block font-semibold text-white mb-0.5">Spa Amenities Provided:</span>
                   <p className="text-neutral-400 leading-relaxed">{currentPartner.policies.attire}</p>
                 </div>
               </div>
@@ -330,11 +320,7 @@ export const PartnerShowcase: React.FC<PartnerShowcaseProps> = ({
               <button
                 type="button"
                 onClick={() => onBookAtSpa(currentPartner.id)}
-                className={`w-full py-3.5 rounded-xl font-semibold text-xs tracking-wider uppercase text-black text-center shadow-lg transition-all ${
-                  isSaga
-                    ? 'bg-gradient-to-r from-[#dec3a0] to-[#c59b6d] hover:brightness-110 shadow-[#c59b6d]/20'
-                    : 'bg-gradient-to-r from-[#b1cfbe] to-[#8cae98] hover:brightness-110 shadow-[#8cae98]/20'
-                }`}
+                className="w-full py-3.5 rounded-xl font-semibold text-xs tracking-wider uppercase text-black text-center bg-[#c59b6d] hover:bg-[#d6af83] transition-colors shadow-md shadow-[#c59b6d]/15"
               >
                 Reserve at {currentPartner.shortName}
               </button>

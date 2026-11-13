@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="8" fill="#0d0f12"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" stroke="#c59b6d" stroke-opacity="0.3"/>
+  <!-- Central Lotus Petal -->
+  <path d="M16 6C16 12 13 17 11 20C13.5 20 18.5 20 21 20C19 17 16 12 16 6Z" fill="#c59b6d" fill-opacity="0.9"/>
+  <!-- Left Petal -->
+  <path d="M16 12C13 13.5 9 17 8 21C10.5 21 14 20.5 15.5 19.5C14.8 17 15.2 14.5 16 12Z" fill="#c59b6d" fill-opacity="0.6"/>
+  <!-- Right Petal -->
+  <path d="M16 12C19 13.5 23 17 24 21C21.5 21 18 20.5 16.5 19.5C17.2 17 16.8 14.5 16 12Z" fill="#c59b6d" fill-opacity="0.6"/>
+  <!-- Base Lotus Curve -->
+  <path d="M10 23C13.5 24.5 18.5 24.5 22 23C20.5 25 11.5 25 10 23Z" fill="#c59b6d"/>
+</svg>
